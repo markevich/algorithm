@@ -1,0 +1,5 @@
+= algorithm
+
+Generate this with
+    algorithm rdoc
+After you have described your command line interface

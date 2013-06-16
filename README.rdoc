@@ -1,0 +1,6 @@
+= algorithm
+
+Describe your project here
+
+:include:algorithm.rdoc
+

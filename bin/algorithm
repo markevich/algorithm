@@ -9,6 +9,11 @@ rescue LoadError
   exit 64
 end
 
+def add_command name
+  options = {}
+  yield options if block_given?
+end
+
 include GLI::App
 
 program_desc 'Set of various algorithms'
@@ -18,12 +23,18 @@ version Algorithm::VERSION
 desc 'Enable time report'
 switch [:t, :time]
 
+add_command(:sorting) do |options|
+
+end
 
 desc 'Sorting algorithms'
-arg_name 'Describe arguments to sorting here'
+long_desc 'Available sorting methods: insertion'
+arg_name 'Sorting method.'
 command :sorting do |c|
-  c.switch :t
+  c.flag [:s, :size]
+
   c.action do |global_options, options, args|
+    help_now!('Sort algorithm name is required') if args.empty?
     puts "sorting command ran"
   end
 end
